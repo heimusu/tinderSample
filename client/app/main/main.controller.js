@@ -24,4 +24,30 @@ angular.module('tinderSampleApp')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
     });
+
+    //ライブラリ呼び出し
+    $scope.stack = gajus.Swing.Stack();
+    /*カード生成
+    $scope.cardElement = document.querySelector('.stack li');
+    window.card = $scope.stack.createCard($scope.cardElement);
+    */
+    //カード動的生成
+    [].forEach.call(document.querySelectorAll('.stack li'), function(targetElement){
+        $scope.stack.createCard(targetElement);
+        targetElement.classList.add('in-deck');
+    });
+
+    //消去
+    $scope.stack.on('throwout',function(e){
+        console.log(e.target.innerText || e.target.textContent,'has been thrown out of the stack to the', e.throwDirection == 1 ? 'right' : 'left','direction.');
+        e.target.classList.remove('in-deck');
+    });
+
+    //追加
+    $scope.stack.on('throwin',function(e){
+        console.log(e);
+        console.log(e.target);
+        console.log(e.target.innerText || e.target.textContent,'has been thrown into the stack from the', e.throwDirection == 1 ? 'right' : 'left', 'direction.');
+        e.target.classList.add('in-deck');
+    });
   });
