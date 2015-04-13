@@ -37,16 +37,17 @@ angular.module('tinderSampleApp')
         targetElement.classList.add('in-deck');
     });
 
-    //消去
+    $scope.deleteList = true;
+    //デッキから消去
     $scope.stack.on('throwout',function(e){
         console.log(e.target.innerText || e.target.textContent,'has been thrown out of the stack to the', e.throwDirection == 1 ? 'right' : 'left','direction.');
         e.target.classList.remove('in-deck');
+        //$scope.deleteList = false;
+        $(e.target).remove();
     });
 
-    //追加
+    //デッキに追加（デッキに戻す)
     $scope.stack.on('throwin',function(e){
-        console.log(e);
-        console.log(e.target);
         console.log(e.target.innerText || e.target.textContent,'has been thrown into the stack from the', e.throwDirection == 1 ? 'right' : 'left', 'direction.');
         e.target.classList.add('in-deck');
     });

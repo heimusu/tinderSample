@@ -2,10 +2,25 @@
 
 angular.module('tinderSampleApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
+    $scope.menu = [
+        //ゆくゆくはアイコンにしたい
+        {
+            'title': 'Home',
+            'link': '/'
+        },
+        {
+            'title': 'Like',
+            'link': '/like'
+        },
+        {
+            'title': 'Favorite',
+            'link':'/favorite'
+        },
+        {
+            'title': 'Search',
+            'link': '/search'
+        }
+    ];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
