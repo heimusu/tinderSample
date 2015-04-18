@@ -28,10 +28,20 @@ liタグがカードに相当するので，ng-repeatを使って動的に生成
         <tbody>
             <tr>
                 <th class="text-center" style="color:#00ffff;">
-                    Like
+                    <p>
+                        Like
+                    </p>
+                    <p>
+                        {{likeCount}}
+                    </p>
                 </th>
                 <th class="text-center" style="color:#c71585;">
-                    Nope
+                    <p>
+                        Nope
+                    </p>
+                    <p>
+                        {{nopeCount}}
+                    </p>
                 </th>
             </tr>
         </tbody>
