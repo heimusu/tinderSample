@@ -12,10 +12,12 @@ angular.module('tinderSampleApp')
             'title': 'Like',
             'link': '/like'
         },
+        /*
         {
             'title': 'Favorite',
             'link':'/favorite'
         },
+        */
         {
             'title': 'Search',
             'link': '/search'
