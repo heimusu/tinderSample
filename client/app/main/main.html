@@ -3,6 +3,8 @@
 <!--
 liタグがカードに相当するので，ng-repeatを使って動的に生成したい
 -->
+<!-- swipe.js動作テスト部分 -->
+<!--
 <div id="viewport">
     <ul class="stack">
         <li class="clubs">
@@ -19,6 +21,18 @@ liタグがカードに相当するので，ng-repeatを使って動的に生成
         </li>
     </ul>
 
+</div>
+-->
+<!-- 画像を表示させてみるテスト -->
+<div id="viewport">
+    <!-- <ul class="stack" ng-repeat="cardNumber in testImages"> -->
+
+    <ul class="stack">
+        <!-- <img src="{{cardNumber.url}}" width="200px" height="300px"> -->
+        <li>
+            <img src="{{testImages[0].url}}" width="200px" height="300px">
+        </li>
+    </ul>
 </div>
 
 

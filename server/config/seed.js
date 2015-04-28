@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var testImage = require('../api/testImage/testImage.model')
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -46,4 +47,26 @@ User.find({}).remove(function() {
       console.log('finished populating users');
     }
   );
+});
+
+testImage.find({}).remove(function(){
+    testImage.create({
+        id:1,
+        name:'testImage1',
+        url:'http://36.media.tumblr.com/cf1a856462967caf6f711de81c4390fa/tumblr_nnie25FH891uqjshqo1_500.jpg'
+    }, {
+        id:2,
+        name:'testImage2',
+        url:'http://40.media.tumblr.com/748105757c81983688a71d59e09fa85f/tumblr_nm9x93s3oA1tty5yto1_500.jpg'
+    },
+    {
+        id:3,
+        name:'testImage3',
+        url:'http://40.media.tumblr.com/f802211038ab0b008dff2279ce76c697/tumblr_nnifwgqfVw1uqjshqo1_500.png'
+    },
+    {
+        id:4,
+        name:'testImage4',
+        url:'http://40.media.tumblr.com/4552f9726ebeecdb717e875b090fa79c/tumblr_nnhsqiaXtx1qb821do1_500.jpg'
+    });
 });

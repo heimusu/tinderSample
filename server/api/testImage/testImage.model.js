@@ -4,9 +4,9 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var TestImageSchema = new Schema({
+  id: Number,
   name: String,
-  info: String,
-  active: Boolean
+  url: String
 });
 
 module.exports = mongoose.model('TestImage', TestImageSchema);

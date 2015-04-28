@@ -9,6 +9,10 @@ angular.module('tinderSampleApp')
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
 
+    $http.get('/api/testImages').success(function(testImages){
+        $scope.testImages = testImages;
+    });
+
     $scope.addThing = function() {
       if($scope.newThing === '') {
         return;
@@ -33,6 +37,7 @@ angular.module('tinderSampleApp')
     */
     //カード動的生成
     [].forEach.call(document.querySelectorAll('.stack li'), function(targetElement){
+    //[].forEach.call(document.querySelectorAll('.stack img'), function(targetElement){
         $scope.stack.createCard(targetElement);
         targetElement.classList.add('in-deck');
     });
