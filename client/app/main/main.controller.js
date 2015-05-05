@@ -29,22 +29,29 @@ angular.module('tinderSampleApp')
       socket.unsyncUpdates('thing');
     });
 
+
     //ライブラリ呼び出し
-    $scope.stack = gajus.Swing.Stack();
-    /*カード生成
+    //$scope.stack = gajus.Swing.Stack();
+
+    /*
+    //カード生成
     $scope.cardElement = document.querySelector('.stack li');
     window.card = $scope.stack.createCard($scope.cardElement);
     */
+
+    /*
     //カード動的生成
     [].forEach.call(document.querySelectorAll('.stack li'), function(targetElement){
-    //[].forEach.call(document.querySelectorAll('.stack img'), function(targetElement){
+    //[].forEach.call(document.querySelectorAll('.stack li'), function(targetElement){
         $scope.stack.createCard(targetElement);
         targetElement.classList.add('in-deck');
     });
+    */
 
     $scope.likeCount = 0;
     $scope.nopeCount = 0;
 
+    /*
     //デッキから消去
     $scope.stack.on('throwout',function(e){
         //console.log(e.target.innerText || e.target.textContent,'has been thrown out of the stack to the', e.throwDirection == 1 ? 'right' : 'left','direction.');
@@ -71,4 +78,33 @@ angular.module('tinderSampleApp')
         console.log(e.target.innerText || e.target.textContent,'has been thrown into the stack from the', e.throwDirection == 1 ? 'right' : 'left', 'direction.');
         e.target.classList.add('in-deck');
     });
+    */
+
+    //test
+    $scope.throwout = function(eventName, eventObject) {
+        console.log('throwout', eventObject);
+    };
+    $scope.throwoutleft = function (eventName, eventObject) {
+        console.log('throwoutleft', eventObject);
+    };
+
+    $scope.throwoutright = function (eventName, eventObject) {
+        console.log('throwoutright', eventObject);
+    };
+
+    $scope.throwin = function (eventName, eventObject) {
+        console.log('throwin', eventObject);
+    };
+
+    $scope.dragstart = function (eventName, eventObject) {
+        console.log('dragstart', eventObject);
+    };
+
+    $scope.dragmove = function (eventName, eventObject) {
+        console.log('dragmove', eventObject);
+    };
+
+    $scope.dragend = function (eventName, eventObject) {
+        console.log('dragend', eventObject);
+    };
   });

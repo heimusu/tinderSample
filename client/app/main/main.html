@@ -25,14 +25,33 @@ liタグがカードに相当するので，ng-repeatを使って動的に生成
 -->
 <!-- 画像を表示させてみるテスト -->
 <div id="viewport">
-    <!-- <ul class="stack" ng-repeat="cardNumber in testImages"> -->
-
-    <ul class="stack">
+    <!-- <ul class="stack"> -->
         <!-- <img src="{{cardNumber.url}}" width="200px" height="300px"> -->
-        <li>
-            <img src="{{testImages[0].url}}" width="200px" height="300px">
-        </li>
+        <!--<li ng-repeat="cardNumber in testImages"> -->
+
+        <!-- <li ng-repeat="i in testArray"> -->
+            <!-- <img src="{{testImages[0].url}}" width="200px" height="300px"> -->
+        <!--</li>-->
+    <!--</ul>-->
+
+    <ul swing-stack>
+        <li swing-card
+        swing-on-throwout="throwout(eventName, eventObject)"
+        swing-on-throwoutleft="throwoutleft(eventName, eventObject)"
+        swing-on-throwoutright="throwoutright(eventName, eventObject)"
+        swing-on-throwin="throwin(eventName, eventObject)"
+        swing-on-dragstart="dragstart(eventName, eventObject)"
+        swing-on-dragmove="dragmove(eventName, eventObject)"
+        swing-on-dragend="dragend(eventName, eventObject)"
+        ></li>
     </ul>
+
+    <!--
+    <ul swing-stack>
+        <li swing-card swing-on-throwout="throwout(eventName,eventObject)"></li>
+    </ul>
+    -->
+
 </div>
 
 
