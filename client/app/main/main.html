@@ -1,38 +1,9 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<!--
-liタグがカードに相当するので，ng-repeatを使って動的に生成したい
--->
-<!-- swipe.js動作テスト部分 -->
-<!--
-<div id="viewport">
-    <ul class="stack">
-        <li class="clubs">
-            ♧
-        </li>
-        <li class="diamonds">
-            ♦
-        </li>
-        <li class="hearts">
-            ♥
-        </li>
-        <li class="spades">
-            ♠
-        </li>
-    </ul>
+<!--liタグがカードに相当するので，ng-repeatを使って動的に生成したい-->
 
-</div>
--->
 <!-- 画像を表示させてみるテスト -->
 <div id="viewport">
-    <!-- <ul class="stack"> -->
-        <!-- <img src="{{cardNumber.url}}" width="200px" height="300px"> -->
-        <!--<li ng-repeat="cardNumber in testImages"> -->
-
-        <!-- <li ng-repeat="i in testArray"> -->
-            <!-- <img src="{{testImages[0].url}}" width="200px" height="300px"> -->
-        <!--</li>-->
-    <!--</ul>-->
 
     <ul swing-stack>
         <li swing-card
@@ -45,12 +16,6 @@ liタグがカードに相当するので，ng-repeatを使って動的に生成
         swing-on-dragend="dragend(eventName, eventObject)"
         ></li>
     </ul>
-
-    <!--
-    <ul swing-stack>
-        <li swing-card swing-on-throwout="throwout(eventName,eventObject)"></li>
-    </ul>
-    -->
 
 </div>
 

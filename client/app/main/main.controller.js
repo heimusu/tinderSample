@@ -48,8 +48,7 @@ angular.module('tinderSampleApp')
     });
     */
 
-    $scope.likeCount = 0;
-    $scope.nopeCount = 0;
+
 
     /*
     //デッキから消去
@@ -80,9 +79,16 @@ angular.module('tinderSampleApp')
     });
     */
 
-    //test
+    //LikeとNopeのカウンター
+    $scope.likeCount = 0;
+    $scope.nopeCount = 0;
+
+    //angular-swingのカード挙動監視
     $scope.throwout = function(eventName, eventObject) {
         console.log('throwout', eventObject);
+        $scope.likeCount++;
+        $scope.$apply();
+        $(eventObject.target).remove();
     };
     $scope.throwoutleft = function (eventName, eventObject) {
         console.log('throwoutleft', eventObject);
@@ -92,19 +98,4 @@ angular.module('tinderSampleApp')
         console.log('throwoutright', eventObject);
     };
 
-    $scope.throwin = function (eventName, eventObject) {
-        console.log('throwin', eventObject);
-    };
-
-    $scope.dragstart = function (eventName, eventObject) {
-        console.log('dragstart', eventObject);
-    };
-
-    $scope.dragmove = function (eventName, eventObject) {
-        console.log('dragmove', eventObject);
-    };
-
-    $scope.dragend = function (eventName, eventObject) {
-        console.log('dragend', eventObject);
-    };
   });
