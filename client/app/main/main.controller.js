@@ -30,72 +30,21 @@ angular.module('tinderSampleApp')
     });
 
 
-    //ライブラリ呼び出し
-    //$scope.stack = gajus.Swing.Stack();
-
-    /*
-    //カード生成
-    $scope.cardElement = document.querySelector('.stack li');
-    window.card = $scope.stack.createCard($scope.cardElement);
-    */
-
-    /*
-    //カード動的生成
-    [].forEach.call(document.querySelectorAll('.stack li'), function(targetElement){
-    //[].forEach.call(document.querySelectorAll('.stack li'), function(targetElement){
-        $scope.stack.createCard(targetElement);
-        targetElement.classList.add('in-deck');
-    });
-    */
-
-
-
-    /*
-    //デッキから消去
-    $scope.stack.on('throwout',function(e){
-        //console.log(e.target.innerText || e.target.textContent,'has been thrown out of the stack to the', e.throwDirection == 1 ? 'right' : 'left','direction.');
-        //nopeの時
-        if(e.throwDirection == 1){
-            console.log("nope");
-            $scope.nopeCount++;
-            console.log($scope.nopeCount);
-        }
-        //likeの時
-        else if(e.throwDirection != 1){
-            console.log("like");
-            $scope.likeCount++;
-            console.log($scope.likeCount);
-        }
-        //カウントしてるDOMを更新
-        $scope.$apply();
-        e.target.classList.remove('in-deck');
-        $(e.target).remove();
-    });
-
-    //デッキに追加（デッキに戻す)
-    $scope.stack.on('throwin',function(e){
-        console.log(e.target.innerText || e.target.textContent,'has been thrown into the stack from the', e.throwDirection == 1 ? 'right' : 'left', 'direction.');
-        e.target.classList.add('in-deck');
-    });
-    */
-
     //LikeとNopeのカウンター
     $scope.likeCount = 0;
     $scope.nopeCount = 0;
 
     //angular-swingのカード挙動監視
-    $scope.throwout = function(eventName, eventObject) {
-        console.log('throwout', eventObject);
+    $scope.throwoutleft = function (eventName, eventObject) {
         $scope.likeCount++;
         $scope.$apply();
         $(eventObject.target).remove();
     };
-    $scope.throwoutleft = function (eventName, eventObject) {
-        console.log('throwoutleft', eventObject);
-    };
 
     $scope.throwoutright = function (eventName, eventObject) {
-        console.log('throwoutright', eventObject);
+        $scope.nopeCount++;
+        $scope.$apply();
+        $(eventObject.target).remove();
     };
 
   });

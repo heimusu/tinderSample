@@ -1,20 +1,16 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <!--liタグがカードに相当するので，ng-repeatを使って動的に生成したい-->
-
-<!-- 画像を表示させてみるテスト -->
 <div id="viewport">
 
     <ul swing-stack>
         <li swing-card
-        swing-on-throwout="throwout(eventName, eventObject)"
         swing-on-throwoutleft="throwoutleft(eventName, eventObject)"
         swing-on-throwoutright="throwoutright(eventName, eventObject)"
-        swing-on-throwin="throwin(eventName, eventObject)"
-        swing-on-dragstart="dragstart(eventName, eventObject)"
-        swing-on-dragmove="dragmove(eventName, eventObject)"
-        swing-on-dragend="dragend(eventName, eventObject)"
-        ></li>
+        ng-repeat="cardNumber in testImages"
+        >
+            <img src="{{cardNumber.url}}" width="320px" height="480px">
+        </li>
     </ul>
 
 </div>
@@ -22,10 +18,10 @@
 
 <!--カードがLikeかNopeかをドラッグさせる部分-->
 <div class="row">
-    <table class="table table-bordered">
+    <table id="judgeTable" class="table table-bordered">
         <tbody>
             <tr>
-                <th class="text-center" style="color:#00ffff;">
+                <th class="text-center judgeText like">
                     <p>
                         Like
                     </p>
@@ -33,7 +29,7 @@
                         {{likeCount}}
                     </p>
                 </th>
-                <th class="text-center" style="color:#c71585;">
+                <th class="text-center judgeText nope">
                     <p>
                         Nope
                     </p>
