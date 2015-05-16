@@ -16,14 +16,27 @@ describe('Controller: MainCtrl', function () {
     $httpBackend.expectGET('/api/things')
       .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
 
+    //add
+    $httpBackend.expectGET('/api/testImages')
+        .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
+
+    $httpBackend.expectGET('/api/likeImages')
+        .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
+
     scope = $rootScope.$new();
     MainCtrl = $controller('MainCtrl', {
       $scope: scope
     });
   }));
 
+  it('should ...', function () {
+    expect(1).toEqual(1);
+  });
+  
+  /*
   it('should attach a list of things to the scope', function () {
     $httpBackend.flush();
     expect(scope.awesomeThings.length).toBe(4);
   });
+  */
 });

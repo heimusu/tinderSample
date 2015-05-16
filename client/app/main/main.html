@@ -1,43 +1,53 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<!--liタグがカードに相当するので，ng-repeatを使って動的に生成したい-->
-<div id="viewport">
 
-    <ul swing-stack>
-        <li swing-card
-        swing-on-throwoutleft="throwoutleft(eventName, eventObject)"
-        swing-on-throwoutright="throwoutright(eventName, eventObject)"
-        ng-repeat="cardNumber in testImages"
-        >
-            <img src="{{cardNumber.url}}" width="320px" height="480px">
-        </li>
-    </ul>
-
+<div ng-hide="isLoggedIn()">
+    <p>
+        please login!
+    </p>
 </div>
 
+<div ng-show="isLoggedIn()">
+    <!--liタグがカードに相当するので，ng-repeatを使って動的に生成したい-->
+    <div id="viewport">
 
-<!--カードがLikeかNopeかをドラッグさせる部分-->
-<div class="row">
-    <table id="judgeTable" class="table table-bordered">
-        <tbody>
-            <tr>
-                <th class="text-center judgeText like">
-                    <p>
-                        Like
-                    </p>
-                    <p>
-                        {{likeCount}}
-                    </p>
-                </th>
-                <th class="text-center judgeText nope">
-                    <p>
-                        Nope
-                    </p>
-                    <p>
-                        {{nopeCount}}
-                    </p>
-                </th>
-            </tr>
-        </tbody>
-    </table>
+        <ul swing-stack>
+            <li swing-card
+            swing-on-throwoutleft="throwoutleft(eventName, eventObject)"
+            swing-on-throwoutright="throwoutright(eventName, eventObject)"
+            ng-repeat="cardNumber in testImages"
+            >
+                <img src="{{cardNumber.url}}" width="320px" height="480px">
+            </li>
+        </ul>
+
+    </div>
+
+
+    <!--カードがLikeかNopeかをドラッグさせる部分-->
+    <div class="row">
+        <table id="judgeTable" class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th class="text-center judgeText like">
+                        <p>
+                            Like
+                        </p>
+                        <p>
+                            {{likeCount}}
+                        </p>
+                    </th>
+                    <th class="text-center judgeText nope">
+                        <p>
+                            Nope
+                        </p>
+                        <p>
+                            {{nopeCount}}
+                        </p>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

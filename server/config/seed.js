@@ -7,7 +7,8 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
-var testImage = require('../api/testImage/testImage.model')
+var testImage = require('../api/testImage/testImage.model');
+var likeImage = require('../api/likeImage/likeImage.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -68,5 +69,23 @@ testImage.find({}).remove(function(){
         id:4,
         name:'testImage4',
         url:'http://40.media.tumblr.com/4552f9726ebeecdb717e875b090fa79c/tumblr_nnhsqiaXtx1qb821do1_500.jpg'
-    });
+    },
+    {
+        id:5,
+        name:"testImage5",
+        url:"http://www.heimusu.com/tinderImage/mobile_21990462.jpeg"
+    }
+    );
+});
+
+likeImage.find({}).remove(function(){
+    likeImage.create({
+        id:'555682b5dc92ab0315720e0f',
+        like:['1']
+    },
+    {
+        id:'555682b5dc92ab0315720e10',
+        like:['1','2']
+    }
+    );
 });

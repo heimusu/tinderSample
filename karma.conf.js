@@ -22,6 +22,9 @@ module.exports = function(config) {
       'client/bower_components/lodash/dist/lodash.compat.js',
       'client/bower_components/angular-socket-io/socket.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
+      //add
+      'client/bower_components/angular-swing/dist/angular-swing.js',
+      
       'client/app/app.js',
       'client/app/app.coffee',
       'client/app/**/*.js',

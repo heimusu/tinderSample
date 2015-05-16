@@ -18,6 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/likeImage/likeImage.socket').register(socket);
   require('../api/testImage/testImage.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 }
