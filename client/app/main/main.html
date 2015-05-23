@@ -7,14 +7,13 @@
     </p>
 </div>
 
-<div ng-show="isLoggedIn()">
-    <!--liタグがカードに相当するので，ng-repeatを使って動的に生成したい-->
+<div ng-show="isLoggedIn()" ng-init="init()">
     <div id="viewport">
 
         <ul swing-stack>
             <li swing-card
-            swing-on-throwoutleft="throwoutleft(eventName, eventObject)"
-            swing-on-throwoutright="throwoutright(eventName, eventObject)"
+            swing-on-throwoutleft="throwoutleft(eventName, eventObject, cardNumber)"
+            swing-on-throwoutright="throwoutright(eventName, eventObject, cardNumber)"
             ng-repeat="cardNumber in testImages"
             >
                 <img src="{{cardNumber.url}}" width="320px" height="480px">
@@ -35,6 +34,9 @@
                         </p>
                         <p>
                             {{likeCount}}
+                        </p>
+                        <p>
+                            {{cardNumber}}
                         </p>
                     </th>
                     <th class="text-center judgeText nope">

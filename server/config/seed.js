@@ -80,12 +80,12 @@ testImage.find({}).remove(function(){
 
 likeImage.find({}).remove(function(){
     likeImage.create({
-        id:'555682b5dc92ab0315720e0f',
-        like:['1']
+        email:'admin@admin.com',
+        like:[1]
     },
     {
-        id:'555682b5dc92ab0315720e10',
-        like:['1','2']
+        email:'test@test.com',
+        like:[1,2]
     }
     );
 });

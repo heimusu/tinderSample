@@ -34,7 +34,8 @@ exports.update = function(req, res) {
   LikeImage.findById(req.params.id, function (err, likeImage) {
     if (err) { return handleError(res, err); }
     if(!likeImage) { return res.send(404); }
-    var updated = _.merge(likeImage, req.body);
+    //var updated = _.merge(likeImage, req.body);
+    var updated = _.extend(likeImage, req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, likeImage);
