@@ -1,12 +1,12 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <!-- 表示させるべきもの：Likeした髪型一覧，美容師情報 -->
-<div class="col-md-12">
-    <div id="viewport">
+<div class="col-md-12" ng-show="isLoggedIn()" ng-init="init()">
+    <div id="grid">
         <p>
-            <ul class="stack">
-                <li style="font-size:14pt;">
-                    favorite card list
+            <ul>
+                <li ng-repeat="likeNumber in userLikeImages" class="likeImages">
+                    <img src="{{likeNumber}}" width="320px" height="480px">
                 </li>
             </ul>
         </p>

@@ -10,9 +10,6 @@ angular.module('tinderSampleApp')
             $scope.isLoggedIn = Auth.isLoggedIn;
             $scope.getCurrentUser = Auth.getCurrentUser;
             $scope.currentUserId = $scope.getCurrentUser().email;
-            console.log($scope.getCurrentUser());
-            console.log($scope.currentUserId);
-            console.log($scope.getCurrentUser()._id);
             $scope.logout = function() {
                 Auth.logout();
                 $location.path('/login');
@@ -42,9 +39,6 @@ angular.module('tinderSampleApp')
                     $http.post('/api/likeImages',{email: $scope.currentUserId, like:[]});
                 }
                 socket.syncUpdates('likeImages',$scope.likeImages);
-                $http.get('/api/likeImages/' + $scope.currentUserDbId).success(function(data){
-                    console.log(data);
-                });
             });
         },500);
     };
@@ -59,22 +53,17 @@ angular.module('tinderSampleApp')
         $scope.currentUserLikeImages = $scope.likeImages[$scope.currentUserDbNumber].like;
         var userLikeImageLength = $scope.currentUserLikeImages.length;
         $scope.currentUserLikeImages[userLikeImageLength] = cardData.id;
-        console.log($scope.currentUserId);
-        console.log($scope.currentUserLikeImages);
         var userData = {email:$scope.currentUserId,like:$scope.currentUserLikeImages};
         $timeout(function(){
             $http.put('/api/likeImages/' + $scope.currentUserDbId,userData);
             socket.syncUpdates('likeImage',$scope.likeImages);
         },1000);
-        console.log($scope.currentUserDbId);
         $scope.$apply();
         $(eventObject.target).remove();
-        console.log($scope.likeImages);
     };
 
     $scope.throwoutright = function (eventName, eventObject, cardData) {
         $scope.nopeCount++;
-        console.log(cardData);
         $scope.$apply();
         $(eventObject.target).remove();
     };
