@@ -34,7 +34,7 @@ angular.module('tinderSampleApp')
                         $scope.currentUserDbNumber = i;
                     }
                 }
-                if(idCheckFlg === 0 && $scope.isLoggedIn() && $scope.currentUserId != undefined){
+                if(idCheckFlg === 0 && $scope.isLoggedIn() && $scope.currentUserId !== undefined){
                     console.log('add');
                     $http.post('/api/likeImages',{email: $scope.currentUserId, like:[]});
                 }
@@ -63,6 +63,7 @@ angular.module('tinderSampleApp')
     };
 
     $scope.throwoutright = function (eventName, eventObject, cardData) {
+        console.log(cardData);
         $scope.nopeCount++;
         $scope.$apply();
         $(eventObject.target).remove();

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tinderSampleApp')
-  .controller('LikeCtrl', function ($scope,$http,Auth,$timeout) {
+  .controller('LikeCtrl', function ($scope,$http,Auth,$timeout,$location) {
     $scope.message = 'Hello';
     //初期化
     $scope.init = function(){
@@ -34,7 +34,7 @@ angular.module('tinderSampleApp')
                         $scope.currentUserDbNumber = i;
                     }
                 }
-                if(idCheckFlg === 0 && $scope.isLoggedIn() && $scope.currentUserId != undefined){
+                if(idCheckFlg === 0 && $scope.isLoggedIn() && $scope.currentUserId !== undefined){
                     $location.path('/signup');
                 }
                 var userLikeInformation = $scope.likeImages[$scope.currentUserDbNumber].like;
